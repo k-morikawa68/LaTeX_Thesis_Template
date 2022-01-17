@@ -1,0 +1,101 @@
+\RequirePackage{plautopatch}
+\documentclass[report,a4paper,uplatex,dvipdfmx,11pt]{jsbook}
+\usepackage{amsmath,amssymb}
+\usepackage{amsfonts}
+\usepackage{bm} %数式中でボールド体も斜体にする。\bm{a}と書けば、斜体ボールドのaが書ける
+\usepackage{graphicx}
+\usepackage[sort,compress,numbers]{natbib} % apsrev4-2ja.bstを使うのに必要
+\usepackage{doi}
+\usepackage{hyperref}
+\bibliographystyle{apsrev4-2ja} % アメリカ物理学会(APS)の標準のbibtexスタイルファイルの適用
+%\bibliographystyle{junsrt} % 文献のタイトルまで表示したい場合はこちらを使う
+
+
+% 余白の設定をするためのパッケージ------------------------------
+%\usepackage[pass]{geometry}
+%\usepackage{bxpapersize}
+% --------------------------------------------------------------
+
+
+% 章見出しの上の余白を小さくする--------------------------------
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@makechapterhead}{\vspace*{2\Cvs}}{}{}{}
+\patchcmd{\@makeschapterhead}{\vspace*{2\Cvs}}{}{}{}
+\makeatother
+% --------------------------------------------------------------
+
+
+% 目次のフォントについて----------------------------------------------------
+% 1. 見出しの文字を明朝体にする(太字にはならない)
+%\renewcommand{\headfont}{\mcfamily}
+
+% 2. 明朝体の太字を使う場合は、上のはコメントアウトして、次の2行を用いる
+%\usepackage[deluxe]{otf}
+%\renewcommand{\headfont}{\mcfamily\bfseries}
+
+% 3. 見出し全てではなく、目次のフォントのみ変更する場合は、
+\usepackage{tocloft}
+\renewcommand{\cftchapnumwidth}{3.8em}
+\renewcommand{\cftchapfont}{\mcfamily}
+\renewcommand{\cftchappagefont}{\rmfamily}
+% --------------------------------------------------------------------------
+
+
+\setcounter{tocdepth}{2} % 目次にどのレベルのセクションまで反映させるか。2だとsubsectionまで。
+
+%\allowdisplaybreaks % 数式の途中での改ページを許す
+
+
+% 卒論で、図をページ数に含めたくないときに用いる図・表環境-------------
+\newenvironment{clearpagefigure}
+{
+\clearpage
+\begin{figure}
+\centering
+\thispagestyle{empty}
+\addtocounter{page}{-1}
+}
+{\end{figure}}
+\newenvironment{clearpagetable}
+{
+\clearpage
+\begin{table}
+\centering
+\thispagestyle{empty}
+\addtocounter{page}{-1}
+}
+{\end{table}}
+% ---------------------------------------------------------------------
+
+
+
+\title{卒論・修論用LaTeXテンプレート}
+\author{Author's Name}
+%\date{2022/01/17}
+\date{最終更新: \today}
+
+\begin{document}
+
+\maketitle
+
+\frontmatter
+\include{abstract}
+\tableofcontents
+
+\mainmatter
+\include{chapter1}
+\include{chapter2}
+\include{chapter3}
+\include{chapter4}
+\include{chapter5}
+
+\appendix
+\include{appendixA}
+
+\backmatter
+\bibliography{reference} % reference.bibの読み込み
+
+\include{acknowledgement}
+
+\end{document}
