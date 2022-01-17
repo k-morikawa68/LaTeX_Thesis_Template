@@ -90,8 +90,19 @@
 \include{chapter4}
 \include{chapter5}
 
+\newcounter{pagenumberbody}
+\setcounter{pagenumberbody}{\value{page}}
+
 \appendix
+\setcounter{page}{1}
+\renewcommand{\thepage}{A--\arabic{page}}
 \include{appendixA}
+\setcounter{page}{1}
+\renewcommand{\thepage}{B--\arabic{page}}
+\include{appendixB}
+
+\renewcommand{\thepage}{\arabic{page}}
+\setcounter{page}{\value{pagenumberbody}}
 
 \backmatter
 \bibliography{reference} % reference.bibの読み込み
