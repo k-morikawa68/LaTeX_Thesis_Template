@@ -10,11 +10,14 @@ chapter, section, subsectionや図の挿入、文献引用などのやり方は�
 文献の引用は、例えば\cite{Okuda2013a}のように行う(ソースファイルchapter1.tex参照)。
 reference.bibのファイルに文献リストを登録しておけば、
 このようにするだけで、自動的に文献リストが作成される。
+書籍の場合はarticleではなくbookにする(引用例：\cite{Kobayashi1977})。
 
 reference.bibファイルに入力する内容は、Google Scholarなどから引っ張ってくる。
 Google Scholarで引用のマーク(図\ref{fig:googleScholar})をクリックすると、
 図\ref{fig:quote}のようなものが出てくる。
+\footnote{図の挿入・参照方法はchapter1.texのこの文章の箇所および末尾に並んでいるfigure環境を参照。}
 次に、BibTeXをクリックすると、図\ref{fig:bibtex}のようなテキストが出てくる。
+\footnote{卒論で図のページをカウントしないようにするためのclearpagefigure環境(main.texで定義)の使い方は、chapter1.texのこの図\ref{fig:bibtex}の挿入をしている箇所を参照。}
 これをreference.bibにコピペする(ただし、Google Scholarのcitationはたまにおかしいのが出てくるので、信用し過ぎない方がいい。論文誌のウェブページからもbibtex用のcitationの情報はダウンロードできることがあり、その方が信用できる)。
 
 \begin{figure}[htbp]
