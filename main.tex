@@ -34,7 +34,7 @@
 % 1. 見出しの文字を明朝体にする(太字にはならない)
 %\renewcommand{\headfont}{\mcfamily}
 
-% 2. 明朝体の太字を使う場合は、上のはコメントアウトして、次の2行を用いる
+% 2. 明朝体の太字を使う場合は、
 %\usepackage[deluxe]{otf}
 %\renewcommand{\headfont}{\mcfamily\bfseries}
 
@@ -100,15 +100,18 @@
 \appendix
 \setcounter{page}{1}
 \renewcommand{\thepage}{A--\arabic{page}}
+\renewcommand{\thesection}{A.\arabic{section}}
 \include{appendixA}
 %\setcounter{page}{1}
 %\renewcommand{\thepage}{B--\arabic{page}}
+%\renewcommand{\thesection}{B.\arabic{section}}
 %\include{appendixB}
 
 \renewcommand{\thepage}{\arabic{page}}
 \setcounter{page}{\value{pagenumberbody}}
 
 \backmatter
+\addcontentsline{toc}{chapter}{参考文献} % 参考文献も目次に表示
 \bibliography{reference} % reference.bibの読み込み
 
 \include{acknowledgement}
