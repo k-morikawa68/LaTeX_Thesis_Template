@@ -46,9 +46,30 @@
 \renewcommand{\cftchappagefont}{\rmfamily}
 % --------------------------------------------------------------------------
 
-\setcounter{tocdepth}{2} % 目次にどのレベルのセクションまで反映させるか。2だとsubsectionまで。
 
-%\allowdisplaybreaks % 数式の途中での改ページを許す
+% 目次に参考文献を表示する ---------------------------------------
+\makeatletter
+\renewenvironment{thebibliography}[1]{%
+ \bibsection\parindent \z@\bibpreamble\bibfont\list
+   {\@biblabel{\arabic{NAT@ctr}}}{\@bibsetup{#1}%
+   \addcontentsline{toc}{chapter}{\bibname}%
+    \setcounter{NAT@ctr}{0}}%
+    \ifNAT@openbib
+      \renewcommand\newblock{\par}
+    \else
+      \renewcommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
+    \fi
+    \sloppy\clubpenalty4000\widowpenalty4000
+    \sfcode`\.=1000\relax
+    \let\citeN\cite \let\shortcite\cite
+    \let\citeasnoun\cite
+ }{\def\@noitemerr{%
+  \PackageWarning{natbib}
+     {Empty `thebibliography' environment}}%
+  \endlist\vskip-\lastskip}
+ \let\bibfont\relax
+\makeatother
+% ----------------------------------------------------------------
 
 
 % 卒論で、図をページ数に含めたくないときに用いる図・表環境-------------
@@ -72,6 +93,10 @@
 {\end{table}}
 % ---------------------------------------------------------------------
 
+
+\setcounter{tocdepth}{2} % 目次にどのレベルのセクションまで反映させるか。2だとsubsectionまで。
+
+%\allowdisplaybreaks % 数式の途中での改ページを許す
 
 
 \title{卒論・修論用\LaTeX テンプレート}
@@ -111,7 +136,6 @@
 \setcounter{page}{\value{pagenumberbody}}
 
 \backmatter
-\addcontentsline{toc}{chapter}{参考文献} % 参考文献も目次に表示
 \bibliography{reference} % reference.bibの読み込み
 
 \include{acknowledgement}
