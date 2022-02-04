@@ -8,6 +8,7 @@
 \usepackage[sort,compress,numbers]{natbib} % apsrev4-2ja.bstを使うのに必要
 \usepackage{doi}
 \usepackage{hyperref}
+\usepackage{tocloft}
 
 % 参考文献の書式の設定-----------------------------------------------------------------
 \bibliographystyle{apsrev4-2ja} % アメリカ物理学会(APS)の標準のbibtexスタイルファイル
@@ -27,6 +28,7 @@
 \patchcmd{\@makechapterhead}{\vspace*{2\Cvs}}{}{}{}
 \patchcmd{\@makeschapterhead}{\vspace*{2\Cvs}}{}{}{}
 \makeatother
+\renewcommand{\cftbeforetoctitleskip}{0pt}
 % --------------------------------------------------------------
 
 
@@ -39,12 +41,10 @@
 %\renewcommand{\headfont}{\mcfamily\bfseries}
 
 % 3. 見出し全てではなく、目次のフォントのみ変更する場合は、
-\usepackage{tocloft}
 \renewcommand{\cftchapnumwidth}{3.8em}
 \renewcommand{\cftchapfont}{\mcfamily}
 \renewcommand{\cftchappagefont}{\rmfamily}
 % --------------------------------------------------------------------------
-
 
 \setcounter{tocdepth}{2} % 目次にどのレベルのセクションまで反映させるか。2だとsubsectionまで。
 
