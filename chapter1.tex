@@ -4,15 +4,16 @@ chapter, section, subsectionや図の挿入、文献引用などのやり方は�
 \section{文献引用の仕方}
 このテンプレートでは、BibTeXを使えるようにしている。
 
-また、文献リストのフォーマットは、\url{https://yosuke-nakata.net/blog}からダウンロードした"apsrev4-2ja.bst"というbibtexスタイルファイルを使用している。
+また、文献リストのフォーマットは、\url{https://yosuke-nakata.net/2020/04/15/923}からダウンロードした``apsrev4-2ja.bst''というbibtexスタイルファイルを使用している。
 これは、アメリカ物理学会(APS)の標準のbibtexスタイルファイル"apsrev4-2.bst"を改造して、日本語の本も表示できるようにしたものらしい。
+他にも、APA-likeなスタイルも選べるようにしている。
 \subsection{BibTeXの使い方}
 文献の引用は、例えば\cite{Okuda2013a}のように行う(ソースファイルchapter1.tex参照)。 
 %番号ではなく，著者名・年で引用したい場合は，main.texで\usepackage[sort,compress]{natbib}を使い(numbersを消す)，\citepにする
 %その場合は，apsrev4-2ではなくapalikeを使う
 reference.bibのファイルに文献リストを登録しておけば、
 このようにするだけで、自動的に文献リストが作成される。
-書籍の場合はarticleではなくbookにする(引用例：\cite{Kobayashi1977})。
+書籍の場合はarticleではなくbookにする(引用例：\cite{jt})。
 
 reference.bibファイルに入力する内容は、Google Scholarなどから引っ張ってくる。
 Google Scholarで引用のマーク(図\ref{fig:googleScholar})をクリックすると、

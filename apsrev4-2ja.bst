@@ -772,7 +772,7 @@ FUNCTION {emphasize}
     duplicate$ empty$
     	{ pop$ "" }
 	{
-	  "ã€Œ" swap$ * "ã€" *
+	  "「" swap$ * "」" *
 	}
     if$
   } if$
